@@ -1,5 +1,4 @@
 # robots.txt for the site
-# Replace "https://princeuchenwakanma.netlify.app/" with your actual site URL before deployment
 
 User-agent: *
 Allow: /
