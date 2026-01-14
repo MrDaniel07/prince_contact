@@ -1,8 +1,8 @@
 [build]
   command = ""
-  publish = "web"
+  publish = "build/web"
 
-# Headers for static assets
+# Headers for stat ic assets
 [[headers]]
   for = "/sitemaps.xml"
   [headers.values]
