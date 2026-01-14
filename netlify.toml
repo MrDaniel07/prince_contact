@@ -1,0 +1,24 @@
+[build]
+  command = "flutter build web"
+  publish = "build/web"
+
+# Headers for static assets
+[[headers]]
+  for = "/sitemaps.xml"
+  [headers.values]
+    Content-Type = "application/xml"
+    X-Content-Type-Options = "nosniff"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain"
+    Cache-Control = "public, max-age=3600"
+
+# Redirect rules for single page app
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = { NOT = [{url-path = {match = "^/(sitemaps\\.xml|robots\\.txt|favicon\\.png|image\\.png|flutter_bootstrap\\.js|flutter\\.js|main\\.dart\\.js|flutter_service_worker\\.js|manifest\\.json|assets/.*|canvaskit/.*|icons/.*)$"}} ]}
