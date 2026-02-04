@@ -4,7 +4,7 @@
 
 # Headers for stat ic assets
 [[headers]]
-  for = "/sitemaps.xml"
+  for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml"
     X-Content-Type-Options = "nosniff"
