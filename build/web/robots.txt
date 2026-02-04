@@ -1,0 +1,5 @@
+# robots.txt for the site
+User-agent: *
+Allow: /
+
+Sitemap: https://princeuchenwakanma.netlify.app/sitemap.xml
