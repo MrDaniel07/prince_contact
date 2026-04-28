@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
@@ -7,25 +7,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta Tags -->
-  <title>Prince Uche Nwakanma | Professional Profile</title>
+  <title>Prince Uche Nwakanma | Founder & CEO, Prince Goodwill Foundation</title>
   <meta name="description"
-    content="Welcome to Prince Uche Nwakanma's professional website. Currently under maintenance. Please check back soon for updates.">
-  <meta name="keywords" content="Prince Uche Nwakanma, professional, contact, portfolio">
+    content="An article-style profile of Prince Uche Nwakanma, Founder & CEO of Prince Goodwill Foundation, highlighting his legal career, philanthropy, and community impact.">
+  <meta name="keywords"
+    content="Prince Uche Nwakanma, Prince Goodwill Foundation, legal expert, philanthropist, entrepreneur, article profile">
   <meta name="author" content="Prince Uche Nwakanma">
   <meta name="copyright" content="Copyright © 2026 Prince Uche Nwakanma">
+  <meta name="theme-color" content="#EAF5FF">
 
   <!-- Open Graph Meta Tags for Social Media -->
-  <meta property="og:title" content="Prince Uche Nwakanma | Professional Profile">
-  <meta property="og:description" content="Professional website of Prince Uche Nwakanma. Currently under maintenance.">
+  <meta property="og:title" content="Prince Uche Nwakanma | Founder & CEO, Prince Goodwill Foundation">
+  <meta property="og:description" content="Article-style profile of Prince Uche Nwakanma with his executive overview, milestones, and foundation mission.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://princeuchenwakanma.netlify.app/">
-  <meta property="og:image" content="image.png">
+  <meta property="og:image" content="asset/images/Prince.jpg">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Prince Uche Nwakanma | Professional Profile">
-  <meta name="twitter:description" content="Professional website of Prince Uche Nwakanma. Currently under maintenance.">
-  <meta name="twitter:image" content="image.png">
+  <meta name="twitter:title" content="Prince Uche Nwakanma | Founder & CEO, Prince Goodwill Foundation">
+  <meta name="twitter:description" content="Article-style profile of Prince Uche Nwakanma with his executive overview, milestones, and foundation mission.">
+  <meta name="twitter:image" content="asset/images/Prince.jpg">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -56,211 +58,356 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: Georgia, 'Times New Roman', serif;
+      background: linear-gradient(180deg, #eaf5ff 0%, #fdfefe 45%, #ffffff 100%);
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+      color: #132233;
     }
 
-    .container {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      padding: 60px 40px;
-      max-width: 600px;
-      text-align: center;
-      animation: slideIn 0.6s ease-out;
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
     }
 
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h1 {
-      color: #333;
-      font-size: 2.5em;
-      margin-bottom: 15px;
-      letter-spacing: -0.5px;
-    }
-
-    .subtitle {
-      color: #667eea;
-      font-size: 1.3em;
-      margin-bottom: 30px;
-      font-weight: 600;
-    }
-
-    .maintenance-icon {
-      font-size: 80px;
-      margin-bottom: 20px;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    .message {
-      color: #666;
-      font-size: 1.1em;
-      line-height: 1.8;
-      margin: 30px 0;
-    }
-
-    .highlight {
-      color: #764ba2;
-      font-weight: 600;
-    }
-
-    .contact-info {
-      background: #f8f9fa;
-      padding: 25px;
-      border-radius: 10px;
-      margin: 30px 0;
-      border-left: 4px solid #667eea;
-    }
-
-    .contact-info p {
-      margin: 10px 0;
-      color: #555;
-      font-size: 0.95em;
-    }
-
-    .social-links {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .social-links a {
-      display: inline-block;
-      width: 45px;
-      height: 45px;
-      background: #667eea;
-      color: white;
-      border-radius: 50%;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      background: #764ba2;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #eee;
-      color: #999;
-      font-size: 0.9em;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 4px;
-      background: #eee;
-      border-radius: 2px;
-      margin: 30px 0;
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 28px;
+      border: 1px solid #d7e8f7;
+      box-shadow: 0 18px 40px rgba(30, 58, 82, 0.12);
       overflow: hidden;
     }
 
-    .progress {
-      height: 100%;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-      animation: loading 2s infinite;
+    .hero {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 28px;
     }
 
-    @keyframes loading {
-      0% {
-        width: 0;
+    .portrait {
+      flex: 0 0 280px;
+      height: 340px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #eaf2fb;
+      box-shadow: 0 10px 18px rgba(30, 58, 82, 0.08);
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+    }
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eaf5ff;
+      border: 1px solid #b9d9f2;
+      color: #16324a;
+      font: 700 13px/1.2 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.08;
+      color: #0b1b2b;
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      color: #1c3750;
+      font: 600 clamp(1.1rem, 2vw, 1.45rem)/1.45 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-bottom: 22px;
+      white-space: pre-line;
+    }
+
+    .section-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.35rem, 2.6vw, 2rem);
+      line-height: 1.2;
+      color: #0b1b2b;
+      margin: 34px 0 14px;
+    }
+
+    .lead,
+    .article-text,
+    .quote,
+    .bullet,
+    .numbered-text,
+    .cta-note,
+    .footnote {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #132233;
+    }
+
+    .lead,
+    .article-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .bullets {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bullet {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 1.03rem;
+      line-height: 1.75;
+    }
+
+    .bullet::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      margin-top: 11px;
+      border-radius: 50%;
+      background: #76b8e8;
+      flex: 0 0 8px;
+    }
+
+    .pill-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .numbered {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 20px;
+      background: #f5faff;
+      border: 1px solid #d8eaf8;
+    }
+
+    .number {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #76b8e8;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font: 800 0.95rem/1 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .numbered-title {
+      font: 800 1.12rem/1.2 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #0b1b2b;
+      margin-bottom: 6px;
+    }
+
+    .quote {
+      padding: 22px;
+      border-radius: 22px;
+      background: #eaf5ff;
+      border: 1px solid #b9d9f2;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      font-style: italic;
+      font-weight: 600;
+      color: #0b1b2b;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: #16324a;
+      color: #fff;
+      text-decoration: none;
+      font: 700 0.98rem/1 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(22, 50, 74, 0.22);
+      opacity: 0.96;
+    }
+
+    .links {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .footer-links {
+      margin-top: 28px;
+      padding: 0 28px 28px;
+      color: #56697b;
+      font: 600 0.95rem/1.6 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .footer-links a {
+      color: #16324a;
+    }
+
+    .loading-shell {
+      display: none;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        flex-direction: column;
       }
 
-      50% {
+      .portrait {
+        flex-basis: auto;
         width: 100%;
+        height: min(340px, 80vw);
       }
 
-      100% {
-        width: 100%;
+      .footer-links {
+        padding: 0 20px 24px;
+      }
+
+      .card {
+        border-radius: 22px;
+      }
+
+      .hero {
+        padding: 20px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="maintenance-icon">🔧</div>
+  <main class="page">
+    <article class="card" aria-label="Prince Uche Nwakanma article preview">
+      <section class="hero">
+        <div class="portrait">
+          <img src="asset/images/Prince.jpg" alt="Prince Uche Nwakanma" />
+        </div>
 
-    <h1>Prince Uche Nwakanma</h1>
-    <div class="subtitle">Professional Profile</div>
+        <div class="content">
+          <div class="tags" aria-label="Profile highlights">
+            <span class="tag">Founder &amp; CEO</span>
+            <span class="tag">Legal Expert</span>
+            <span class="tag">Strategic Entrepreneur</span>
+            <span class="tag">Global Philanthropist</span>
+          </div>
 
-    <div class="message">
-      <p>This website is currently <span class="highlight">under maintenance</span>.</p>
-      <p>We're working hard to bring you an enhanced experience with new features and improvements.</p>
-    </div>
+          <h1>Prince Uche Nwakanma</h1>
+          <div class="subtitle">Founder &amp; CEO, Prince Goodwill Foundation
+Legal Expert | Strategic Entrepreneur | Global Philanthropist</div>
 
-    <div class="progress-bar">
-      <div class="progress"></div>
-    </div>
+          <div class="section-title">Executive Overview</div>
+          <p class="lead">Prince Uche Nwakanma is a distinguished legal professional and entrepreneur who has transitioned a high-achieving career in the United States into a mission of transformational leadership. As the founder of the Prince Goodwill Foundation, he leverages decades of strategic experience to drive sustainable healthcare, education, and housing initiatives across Nigeria and the U.S.</p>
+        </div>
+      </section>
 
-    <div class="message">
-      <strong>Check back soon!</strong>
-      <p>Thank you for your patience and interest in visiting my professional website.</p>
-    </div>
+      <section class="hero" style="padding-top: 0; display: block;">
+        <div class="section-title">Professional Milestones</div>
+        <div class="bullets">
+          <div class="bullet">Legal Distinction: A Juris Doctor (Thurgood Marshall School of Law, 2002), licensed by the Supreme Court of Kansas and the Federal Court for the Southern District of Texas. He has successfully represented over 6,000 clients in federal law.</div>
+          <div class="bullet">National Recognition: Named among the Top 50 Black Lawyers in the United States, a testament to his diligence and ethical practice.</div>
+          <div class="bullet">Civic Leadership: Appointed to the President’s Business Advisory Council (Texas) under President George W. Bush and invited to the White House under both the Bush and Obama administrations.</div>
+        </div>
 
-    <div class="contact-info">
-      <p><strong>In the meantime:</strong></p>
-      <p>Feel free to reach out or stay tuned for updates on this page.</p>
-      <p style="margin-top: 15px; font-size: 0.9em; color: #999;">
-        Expected completion: Coming Soon
-      </p>
-    </div>
+        <div class="section-title">The Prince Goodwill Foundation: A Legacy of Impact</div>
+        <p class="article-text">Driven by a philosophy of empowerment over dependency, Prince Nwakanma established the Foundation to address systemic challenges through four strategic pillars:</p>
 
-    <div class="contact-info" aria-label="Featured articles">
-      <p><strong>Featured on:</strong></p>
-      <p><a href="https://360naijahits.com.ng/news/the-unprecedented-story-of-attorney-prince-nwakanma/" rel="noopener"
-          style="color: #667eea;">360naijahits: The Unprecedented Story of Attorney Prince Nwakanma</a></p>
-      <p><a href="https://www.justmp3loaded.i.ng/2022/07/the-unprecedented-story-of-attorney_28.html?m=1" rel="noopener"
-          style="color: #667eea;">JustMP3Loaded: The Unprecedented Story of Attorney Prince Nwakanma</a></p>
-    </div>
+        <div class="pill-grid">
+          <div class="numbered">
+            <div class="number">01</div>
+            <div>
+              <div class="numbered-title">Healthcare</div>
+              <div class="numbered-text">Extensive medical missions providing essential services to vulnerable populations.</div>
+            </div>
+          </div>
+          <div class="numbered">
+            <div class="number">02</div>
+            <div>
+              <div class="numbered-title">Education</div>
+              <div class="numbered-text">Scholarships designed to unlock academic potential for underprivileged students.</div>
+            </div>
+          </div>
+          <div class="numbered">
+            <div class="number">03</div>
+            <div>
+              <div class="numbered-title">Shelter</div>
+              <div class="numbered-text">Housing assistance programs focused on restoring family stability and dignity.</div>
+            </div>
+          </div>
+          <div class="numbered">
+            <div class="number">04</div>
+            <div>
+              <div class="numbered-title">Faith &amp; Community</div>
+              <div class="numbered-text">Values-based engagement to foster long-term social cohesion.</div>
+            </div>
+          </div>
+        </div>
 
-    <div class="contact-info" aria-label="Foundation">
-      <p><strong>Founder:</strong></p>
-      <p><a href="https://princegoodwillfoundation.org/" rel="noopener" style="color: #667eea;">Prince Goodwill
-          Foundation</a></p>
-      <p style="color: #555; font-size: 0.95em;">Community-focused initiatives led by Prince Uche Nwakanma.</p>
-    </div>
+        <div class="quote">Sustainable change happens when we listen, collaborate, and support local solutions to local challenges.</div>
 
-    <div class="footer">
-      <p>&copy; 2026 Prince Uche Nwakanma. All rights reserved.</p>
-    </div>
-  </div>
+        <div class="section-title">Academic &amp; Personal Foundation</div>
+        <div class="bullets">
+          <div class="bullet">Education: B.S. in Biology (University of Houston–Downtown); Juris Doctor (Texas Southern University).</div>
+          <div class="bullet">Philosophy: A faith-driven leader who integrates transparent governance with compassionate action.</div>
+          <div class="bullet">Personal: A devoted husband and father of three daughters, he views family and faith as the cornerstones of community stability.</div>
+        </div>
+
+        <div class="section-title">Connect With the Mission</div>
+        <p class="article-text">Prince Nwakanma remains dedicated to bridging professional excellence with humanitarian service, ensuring that every initiative produces measurable, generational transformation.</p>
+
+        <div class="actions" aria-label="Call to action links">
+          <a class="button" href="https://princegoodwillfoundation.org/programs" rel="noopener">Explore Our Programs</a>
+          <a class="button" href="https://princegoodwillfoundation.org/contact" rel="noopener">Partner With Us</a>
+          <a class="button" href="https://princegoodwillfoundation.org/impact" rel="noopener">See Our Impact</a>
+        </div>
+
+        <div class="links" aria-label="Featured articles">
+          <div class="section-title" style="margin-bottom: 4px;">Featured On</div>
+          <p class="article-text"><a href="https://360naijahits.com.ng/news/the-unprecedented-story-of-attorney-prince-nwakanma/" rel="noopener">360naijahits: The Unprecedented Story of Attorney Prince Nwakanma</a></p>
+          <p class="article-text"><a href="https://www.justmp3loaded.i.ng/2022/07/the-unprecedented-story-of-attorney_28.html?m=1" rel="noopener">JustMP3Loaded: The Unprecedented Story of Attorney Prince Nwakanma</a></p>
+          <p class="article-text"><a href="https://princegoodwillfoundation.org/" rel="noopener">Prince Goodwill Foundation</a></p>
+        </div>
+      </section>
+
+      <div class="footer-links">&copy; 2026 Prince Uche Nwakanma. All rights reserved.</div>
+    </article>
+  </main>
 
   <!-- Structured Data for SEO -->
   <script type="application/ld+json">
@@ -269,7 +416,7 @@
     "@type": "Person",
     "name": "Prince Uche Nwakanma",
     "url": "https://princeuchenwakanma.netlify.app/",
-    "description": "Professional profile of Prince Uche Nwakanma",
+    "description": "Article-style profile of Prince Uche Nwakanma, Founder & CEO of Prince Goodwill Foundation",
     "sameAs": [
       "https://360naijahits.com.ng/news/the-unprecedented-story-of-attorney-prince-nwakanma/",
       "https://www.justmp3loaded.i.ng/2022/07/the-unprecedented-story-of-attorney_28.html?m=1",
