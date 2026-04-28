@@ -154,8 +154,8 @@ class ArticlePage extends StatelessWidget {
                             clipBehavior: Clip.antiAlias,
                             child: Image.asset(
                               'asset/images/Prince.jpg',
-                              fit: BoxFit.cover,
-                              alignment: Alignment.topLeft,
+                              fit: BoxFit.contain,
+                              alignment: Alignment.center,
                             ),
                           );
 
