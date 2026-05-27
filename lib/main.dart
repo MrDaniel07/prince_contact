@@ -99,14 +99,119 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ArticlePage extends StatelessWidget {
+class ArticlePage extends StatefulWidget {
   const ArticlePage({super.key});
+
+  @override
+  State<ArticlePage> createState() => _ArticlePageState();
+}
+
+class _ArticlePageState extends State<ArticlePage> {
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey _topKey = GlobalKey();
+  final GlobalKey _milestonesKey = GlobalKey();
+  final GlobalKey _academicKey = GlobalKey();
+  final GlobalKey _connectKey = GlobalKey();
+  final GlobalKey _galleryKey = GlobalKey();
+
+  Future<void> _scrollTo(GlobalKey key) async {
+    final ctx = key.currentContext;
+    if (ctx == null) return;
+    await Scrollable.ensureVisible(
+      ctx,
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
+      alignment: 0.07,
+    );
+  }
+
+  void _openNavMenu() {
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (c) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              title: const Text('Top'),
+              onTap: () {
+                Navigator.pop(context);
+                _scrollTo(_topKey);
+              },
+            ),
+            ListTile(
+              title: const Text('Professional Milestones'),
+              onTap: () {
+                Navigator.pop(context);
+                _scrollTo(_milestonesKey);
+              },
+            ),
+            ListTile(
+              title: const Text('Academic & Personal Foundation'),
+              onTap: () {
+                Navigator.pop(context);
+                _scrollTo(_academicKey);
+              },
+            ),
+            ListTile(
+              title: const Text('Connect With the Mission'),
+              onTap: () {
+                Navigator.pop(context);
+                _scrollTo(_connectKey);
+              },
+            ),
+            ListTile(
+              title: const Text('Gallery'),
+              onTap: () {
+                Navigator.pop(context);
+                _scrollTo(_galleryKey);
+              },
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSectionWithKey({required GlobalKey key, required Widget child}) {
+    return Container(key: key, child: child);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: const Color(0xFF111111),
+        elevation: 0,
+        centerTitle: false,
+        title: GestureDetector(
+          onTap: () => _scrollTo(_topKey),
+          child: Image.asset(
+            'asset/images/image.png',
+            height: 34,
+            fit: BoxFit.contain,
+            semanticLabel: 'Site logo',
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: _openNavMenu,
+            tooltip: 'Open navigation',
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
+          controller: _scrollController,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
             child: Center(
@@ -115,6 +220,7 @@ class ArticlePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Container(key: _topKey),
                     const Text(
                       'About Prince Uche Nwakanma',
                       style: TextStyle(
@@ -157,86 +263,98 @@ class ArticlePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 30),
-                    const _SectionBlock(
-                      title: 'Professional Milestones',
-                      child: _BulletList(
-                        items: [
-                          'Legal Distinction: A Juris Doctor (Thurgood Marshall School of Law, 2002), licensed by the Supreme Court of Kansas and the Federal Court for the Southern District of Texas. He has successfully represented over 6,000 clients in federal law.',
-                          'National Recognition: Named among the Top 50 Black Lawyers in the United States, a testament to his diligence and ethical practice.',
-                          'Civic Leadership: Appointed to the President’s Business Advisory Council (Texas) under President George W. Bush and invited to the White House under both the Bush and Obama administrations.',
-                        ],
+                    _buildSectionWithKey(
+                      key: _milestonesKey,
+                      child: const _SectionBlock(
+                        title: 'Professional Milestones',
+                        child: _BulletList(
+                          items: [
+                            'Legal Distinction: A Juris Doctor (Thurgood Marshall School of Law, 2002), licensed by the Supreme Court of Kansas and the Federal Court for the Southern District of Texas. He has successfully represented over 6,000 clients in federal law.',
+                            'National Recognition: Named among the Top 50 Black Lawyers in the United States, a testament to his diligence and ethical practice.',
+                            'Civic Leadership: Appointed to the President’s Business Advisory Council (Texas) under President George W. Bush and invited to the White House under both the Bush and Obama administrations.',
+                          ],
+                        ),
                       ),
                     ),
-                    const _SectionBlock(
-                      title: 'Academic & Personal Foundation',
-                      child: _BulletList(
-                        items: [
-                          'Education: B.S. in Biology (University of Houston–Downtown); Juris Doctor (Texas Southern University).',
-                          'Philosophy: A faith-driven leader who integrates transparent governance with compassionate action.',
-                          'Personal: A devoted husband and father of three daughters, he views family and faith as the cornerstones of community stability.',
-                        ],
+                    _buildSectionWithKey(
+                      key: _academicKey,
+                      child: const _SectionBlock(
+                        title: 'Academic & Personal Foundation',
+                        child: _BulletList(
+                          items: [
+                            'Education: B.S. in Biology (University of Houston–Downtown); Juris Doctor (Texas Southern University).',
+                            'Philosophy: A faith-driven leader who integrates transparent governance with compassionate action.',
+                            'Personal: A devoted husband and father of three daughters, he views family and faith as the cornerstones of community stability.',
+                          ],
+                        ),
                       ),
                     ),
-                    const _SectionBlock(
-                      title: 'Connect With the Mission',
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Prince Nwakanma remains dedicated to bridging professional excellence with humanitarian service, ensuring that every initiative produces measurable, generational transformation.',
-                            style: TextStyle(
-                              fontSize: 16,
-                              height: 1.8,
-                              color: Color(0xFF111111),
+                    _buildSectionWithKey(
+                      key: _connectKey,
+                      child: const _SectionBlock(
+                        title: 'Connect With the Mission',
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Prince Nwakanma remains dedicated to bridging professional excellence with humanitarian service, ensuring that every initiative produces measurable, generational transformation.',
+                              style: TextStyle(
+                                fontSize: 16,
+                                height: 1.8,
+                                color: Color(0xFF111111),
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 16),
-                          Wrap(
-                            spacing: 10,
-                            runSpacing: 10,
-                            children: [
-                              _TextLinkButton(
-                                label: 'Explore Our Programs',
-                                url:
-                                    'https://princegoodwillfoundation.org/programs',
-                              ),
-                              _TextLinkButton(
-                                label: 'Partner With Us',
-                                url:
-                                    'https://princegoodwillfoundation.org/contact',
-                              ),
-                              _TextLinkButton(
-                                label: 'See Our Impact',
-                                url:
-                                    'https://princegoodwillfoundation.org/impact',
-                              ),
-                            ],
-                          ),
-                        ],
+                            SizedBox(height: 16),
+                            Wrap(
+                              spacing: 10,
+                              runSpacing: 10,
+                              children: [
+                                _TextLinkButton(
+                                  label: 'Explore Our Programs',
+                                  url:
+                                      'https://princegoodwillfoundation.org/programs',
+                                ),
+                                _TextLinkButton(
+                                  label: 'Partner With Us',
+                                  url:
+                                      'https://princegoodwillfoundation.org/contact',
+                                ),
+                                _TextLinkButton(
+                                  label: 'See Our Impact',
+                                  url:
+                                      'https://princegoodwillfoundation.org/impact',
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    _SectionBlock(
-                      title: 'Gallery',
-                      child: Wrap(
-                        spacing: 12,
-                        runSpacing: 12,
-                        children: const [
-                          _GalleryImage(
-                            asset:
-                                'asset/images/prince-at-usa-presidents-dinner.jpeg',
-                            alt: 'Prince at USA Presidents Dinner',
-                          ),
-                          _GalleryImage(
-                            asset:
-                                'asset/images/prince-at-white-house-with-barrack-obama.jpeg',
-                            alt: 'Prince at White House with Barrack Obama',
-                          ),
-                          _GalleryImage(
-                            asset:
-                                'asset/images/prince-philanthropic-award-from-tsu.jpeg',
-                            alt: 'Prince philanthropic award from TSU',
-                          ),
-                        ],
+                    _buildSectionWithKey(
+                      key: _galleryKey,
+                      child: _SectionBlock(
+                        title: 'Gallery',
+                        child: Wrap(
+                          spacing: 12,
+                          runSpacing: 12,
+                          children: const [
+                            _GalleryImage(
+                              asset:
+                                  'asset/images/prince-at-usa-presidents-dinner.jpeg',
+                              alt: 'Prince at USA Presidents Dinner',
+                            ),
+                            _GalleryImage(
+                              asset:
+                                  'asset/images/prince-at-white-house-with-barrack-obama.jpeg',
+                              alt: 'Prince at White House with Barrack Obama',
+                            ),
+                            _GalleryImage(
+                              asset:
+                                  'asset/images/prince-philanthropic-award-from-tsu.jpeg',
+                              alt: 'Prince philanthropic award from TSU',
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     const Padding(

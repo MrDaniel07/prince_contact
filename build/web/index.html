@@ -42,6 +42,7 @@
     <meta name="revisit-after" content="7 days">
 
     <style>
+        html { scroll-behavior: smooth; }
         * {
             box-sizing: border-box;
         }
@@ -67,6 +68,55 @@
             max-width: 920px;
             margin: 0 auto;
             padding: 30px 24px 64px;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            z-index: 1200;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .header-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .logo img { height: 34px; display: block; }
+
+        .hamburger {
+            background: transparent;
+            border: 0;
+            font-size: 22px;
+            cursor: pointer;
+            color: #111111;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 14px 18px;
+            background: #ffffff;
+            border: 1px solid #e6edf3;
+            box-shadow: 0 6px 18px rgba(17,17,17,0.06);
+            position: absolute;
+            right: 24px;
+            top: 60px;
+            border-radius: 8px;
+        }
+
+        .nav-menu a { color: #111111; text-decoration: none; font-weight: 600; }
+
+        @media (min-width: 860px) {
+            .nav-menu { flex-direction: row; position: static; box-shadow: none; border: 0; gap: 14px; padding: 0; }
+            .hamburger { display: none; }
         }
 
         .hero {
@@ -291,9 +341,24 @@
 </head>
 
 <body>
+    <header class="site-header" role="banner">
+        <div class="header-inner">
+            <a class="logo" href="#top"><img src="image.png" alt="Site logo"></a>
+            <div style="position:relative">
+                <button id="navToggle" class="hamburger" aria-expanded="false" aria-label="Open navigation">☰</button>
+                <nav id="navMenu" class="nav-menu" hidden aria-label="Primary">
+                    <a href="#top">Top</a>
+                    <a href="#professional-milestones">Professional Milestones</a>
+                    <a href="#academic-personal">Academic &amp; Personal Foundation</a>
+                    <a href="#connect">Connect With the Mission</a>
+                    <a href="#gallery">Gallery</a>
+                </nav>
+            </div>
+        </div>
+    </header>
     <main class="page">
         <article aria-label="Prince Uche Nwakanma article preview">
-            <section class="hero">
+            <section id="top" class="hero">
                 <div class="content">
                     <h1>About Prince Uche Nwakanma</h1>
                     <div class="subtitle">Founder &amp; CEO, Prince Goodwill Foundation
@@ -314,7 +379,7 @@
                     drive
                     sustainable healthcare, education, and housing initiatives across Nigeria and the U.S.</p>
 
-                <div class="section-title">Professional Milestones</div>
+                <div id="professional-milestones" class="section-title">Professional Milestones</div>
                 <div class="bullets">
                     <div class="bullet">Legal Distinction: A Juris Doctor (Thurgood Marshall School of Law, 2002),
                         licensed by
@@ -330,7 +395,7 @@
                         administrations.</div>
                 </div>
 
-                <div class="section-title">Academic &amp; Personal Foundation</div>
+                <div id="academic-personal" class="section-title">Academic &amp; Personal Foundation</div>
                 <div class="bullets">
                     <div class="bullet">Education: B.S. in Biology (University of Houston–Downtown); Juris Doctor (Texas
                         Southern
@@ -343,7 +408,7 @@
                         the cornerstones of community stability.</div>
                 </div>
 
-                <div class="section-title">Connect With the Mission</div>
+                <div id="connect" class="section-title">Connect With the Mission</div>
                 <p class="article-text">Prince Nwakanma remains dedicated to bridging professional excellence with
                     humanitarian
                     service, ensuring that every initiative produces measurable, generational transformation.</p>
@@ -377,7 +442,7 @@
 
             </section>
 
-            <section class="gallery-section" aria-label="Photo gallery">
+            <section id="gallery" class="gallery-section" aria-label="Photo gallery">
                 <div class="section-title" style="margin-bottom: 8px;">Gallery</div>
                 <div class="gallery">
                     <figure>
@@ -401,6 +466,30 @@
             <div class="footer-links">&copy; 2026 Prince Uche Nwakanma. All rights reserved.</div>
         </article>
     </main>
+
+    <script>
+        (function(){
+            const btn = document.getElementById('navToggle');
+            const menu = document.getElementById('navMenu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', ()=>{
+                const isHidden = menu.hasAttribute('hidden');
+                if (isHidden) {
+                    menu.removeAttribute('hidden');
+                    btn.setAttribute('aria-expanded','true');
+                } else {
+                    menu.setAttribute('hidden','');
+                    btn.setAttribute('aria-expanded','false');
+                }
+            });
+            Array.from(menu.querySelectorAll('a')).forEach(a=>{
+                a.addEventListener('click', ()=>{
+                    if (!menu.hasAttribute('hidden')) menu.setAttribute('hidden','');
+                    btn.setAttribute('aria-expanded','false');
+                });
+            });
+        })();
+    </script>
 
     <script type="application/ld+json">
   {
