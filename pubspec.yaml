@@ -59,8 +59,11 @@ flutter:
   uses-material-design: true
 
   assets:
-     - asset/images/Prince.jpg
+     - asset/images/prince-uche-nwakanma.jpg
      - asset/images/image.png
+     - asset/images/prince-at-usa-presidents-dinner.jpeg
+     - asset/images/prince-at-white-house-with-barrack-obama.jpeg
+     - asset/images/prince-philanthropic-award-from-tsu.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

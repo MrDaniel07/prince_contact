@@ -96,7 +96,7 @@ class ArticlePage extends StatelessWidget {
                             ),
                             clipBehavior: Clip.antiAlias,
                             child: Image.asset(
-                              'asset/images/Prince.jpg',
+                              'asset/images/prince-uche-nwakanma.jpg',
                               fit: BoxFit.contain,
                               alignment: Alignment.center,
                             ),
@@ -299,6 +299,20 @@ class ArticlePage extends StatelessWidget {
                             label: 'Prince Goodwill Foundation',
                             url: 'https://princegoodwillfoundation.org/',
                           ),
+                        ],
+                      ),
+                    ),
+                    const _SectionBlock(
+                      title: 'Prince Goodwill Foundation',
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _FeatureLink(label: 'About', url: 'https://princegoodwillfoundation.org/about'),
+                          _FeatureLink(label: 'Founder', url: 'https://princegoodwillfoundation.org/founder'),
+                          _FeatureLink(label: 'Programs', url: 'https://princegoodwillfoundation.org/programs'),
+                          _FeatureLink(label: 'Impact', url: 'https://princegoodwillfoundation.org/impact'),
+                          _FeatureLink(label: 'News', url: 'https://princegoodwillfoundation.org/news'),
+                          _FeatureLink(label: 'Contact', url: 'https://princegoodwillfoundation.org/contact'),
                         ],
                       ),
                     ),
