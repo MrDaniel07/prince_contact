@@ -5,6 +5,42 @@ void main() {
   runApp(const MyApp());
 }
 
+class _GalleryImage extends StatelessWidget {
+  const _GalleryImage({required this.asset, required this.alt});
+
+  final String asset;
+  final String alt;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 160,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Semantics(
+            label: alt,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                asset,
+                fit: BoxFit.cover,
+                height: 110,
+                width: double.infinity,
+              ),
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            alt,
+            style: const TextStyle(fontSize: 13, color: Color(0xFF374151)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -19,32 +55,37 @@ class MyApp extends StatelessWidget {
           seedColor: const Color(0xFF111827),
           brightness: Brightness.light,
         ),
-        scaffoldBackgroundColor: const Color(0xFFF7F8FA),
+        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
         textTheme: const TextTheme(
           displayLarge: TextStyle(
-            fontSize: 42,
-            fontWeight: FontWeight.w800,
-            color: Color(0xFF111827),
-            height: 1.08,
+            fontFamily: 'Georgia',
+            fontSize: 48,
+            fontWeight: FontWeight.w700,
+            color: Color(0xFF2B2F36),
+            height: 1.05,
           ),
           headlineMedium: TextStyle(
-            fontSize: 23,
+            fontFamily: 'Georgia',
+            fontSize: 30,
             fontWeight: FontWeight.w700,
-            color: Color(0xFF111827),
-            height: 1.25,
+            color: Color(0xFF2B2F36),
+            height: 1.18,
           ),
           titleLarge: TextStyle(
+            fontFamily: 'Georgia',
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: Color(0xFF111827),
+            color: Color(0xFF2B2F36),
           ),
           bodyLarge: TextStyle(
-            fontSize: 16,
+            fontFamily: 'Georgia',
+            fontSize: 19,
             height: 1.8,
             color: Color(0xFF374151),
           ),
           bodyMedium: TextStyle(
-            fontSize: 14,
+            fontFamily: 'Georgia',
+            fontSize: 16,
             height: 1.75,
             color: Color(0xFF4B5563),
           ),
@@ -64,109 +105,95 @@ class ArticlePage extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 980),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: const Color(0xFFE5E7EB)),
-                ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 760),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(28),
-                      child: LayoutBuilder(
-                        builder: (context, constraints) {
-                          final isNarrow = constraints.maxWidth < 760;
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        final isNarrow = constraints.maxWidth < 700;
 
-                          final image = Container(
-                            width: isNarrow ? double.infinity : 260,
-                            height: isNarrow ? 320 : 340,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFF3F4F6),
-                              borderRadius: BorderRadius.circular(18),
-                              border: Border.all(
-                                color: const Color(0xFFE5E7EB),
+                        final image = SizedBox(
+                          width: isNarrow ? double.infinity : 240,
+                          height: isNarrow ? 300 : 320,
+                          child: Image.asset(
+                            'asset/images/prince-uche-nwakanma.jpg',
+                            fit: BoxFit.contain,
+                            alignment: Alignment.center,
+                          ),
+                        );
+
+                        final header = Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Prince Uche Nwakanma',
+                              style: TextStyle(
+                                fontFamily: 'Georgia',
+                                fontSize: 46,
+                                fontWeight: FontWeight.w700,
+                                height: 1.06,
+                                letterSpacing: -0.8,
+                                color: Color(0xFF2B2F36),
                               ),
                             ),
-                            clipBehavior: Clip.antiAlias,
-                            child: Image.asset(
-                              'asset/images/prince-uche-nwakanma.jpg',
-                              fit: BoxFit.contain,
-                              alignment: Alignment.center,
+                            const SizedBox(height: 12),
+                            const Text(
+                              'Founder & CEO, Prince Goodwill Foundation\nLegal Expert | Strategic Entrepreneur | Global Philanthropist',
+                              style: TextStyle(
+                                fontFamily: 'Georgia',
+                                fontSize: 18,
+                                height: 1.75,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF4B5563),
+                              ),
                             ),
-                          );
+                            const SizedBox(height: 22),
+                            Container(
+                              width: 88,
+                              height: 1,
+                              color: const Color(0xFFD8DEE5),
+                            ),
+                            const SizedBox(height: 22),
+                            Text(
+                              'Executive Overview',
+                              style: theme.textTheme.headlineMedium,
+                            ),
+                            const SizedBox(height: 12),
+                            Text(
+                              'Prince Uche Nwakanma is a distinguished legal professional and entrepreneur who has transitioned a high-achieving career in the United States into a mission of transformational leadership. As the founder of the Prince Goodwill Foundation, he leverages decades of strategic experience to drive sustainable healthcare, education, and housing initiatives across Nigeria and the U.S.',
+                              style: theme.textTheme.bodyLarge,
+                            ),
+                          ],
+                        );
 
-                          final header = Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Prince Uche Nwakanma',
-                                style: TextStyle(
-                                  fontSize: 42,
-                                  fontWeight: FontWeight.w800,
-                                  height: 1.08,
-                                  letterSpacing: -1.2,
-                                  color: Color(0xFF111827),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              const Text(
-                                'Founder & CEO, Prince Goodwill Foundation\nLegal Expert | Strategic Entrepreneur | Global Philanthropist',
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  height: 1.6,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xFF4B5563),
-                                ),
-                              ),
-                              const SizedBox(height: 18),
-                              Container(
-                                width: 72,
-                                height: 1,
-                                color: const Color(0xFFE5E7EB),
-                              ),
-                              const SizedBox(height: 18),
-                              Text(
-                                'Executive Overview',
-                                style: theme.textTheme.headlineMedium,
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                'Prince Uche Nwakanma is a distinguished legal professional and entrepreneur who has transitioned a high-achieving career in the United States into a mission of transformational leadership. As the founder of the Prince Goodwill Foundation, he leverages decades of strategic experience to drive sustainable healthcare, education, and housing initiatives across Nigeria and the U.S.',
-                                style: theme.textTheme.bodyLarge,
-                              ),
-                            ],
-                          );
-
-                          if (isNarrow) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                image,
-                                const SizedBox(height: 22),
-                                header,
-                              ],
-                            );
-                          }
-
-                          return Row(
+                        if (isNarrow) {
+                          return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               image,
-                              const SizedBox(width: 28),
-                              Expanded(child: header),
+                              const SizedBox(height: 20),
+                              header,
                             ],
                           );
-                        },
-                      ),
+                        }
+
+                        return Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            image,
+                            const SizedBox(width: 28),
+                            Expanded(child: header),
+                          ],
+                        );
+                      },
                     ),
-                    const _DividerLine(),
+                    const SizedBox(height: 26),
                     const _SectionBlock(
                       title: 'Professional Milestones',
                       child: _BulletList(
@@ -307,17 +334,60 @@ class ArticlePage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _FeatureLink(label: 'About', url: 'https://princegoodwillfoundation.org/about'),
-                          _FeatureLink(label: 'Founder', url: 'https://princegoodwillfoundation.org/founder'),
-                          _FeatureLink(label: 'Programs', url: 'https://princegoodwillfoundation.org/programs'),
-                          _FeatureLink(label: 'Impact', url: 'https://princegoodwillfoundation.org/impact'),
-                          _FeatureLink(label: 'News', url: 'https://princegoodwillfoundation.org/news'),
-                          _FeatureLink(label: 'Contact', url: 'https://princegoodwillfoundation.org/contact'),
+                          _FeatureLink(
+                            label: 'About',
+                            url: 'https://princegoodwillfoundation.org/about',
+                          ),
+                          _FeatureLink(
+                            label: 'Founder',
+                            url: 'https://princegoodwillfoundation.org/founder',
+                          ),
+                          _FeatureLink(
+                            label: 'Programs',
+                            url:
+                                'https://princegoodwillfoundation.org/programs',
+                          ),
+                          _FeatureLink(
+                            label: 'Impact',
+                            url: 'https://princegoodwillfoundation.org/impact',
+                          ),
+                          _FeatureLink(
+                            label: 'News',
+                            url: 'https://princegoodwillfoundation.org/news',
+                          ),
+                          _FeatureLink(
+                            label: 'Contact',
+                            url: 'https://princegoodwillfoundation.org/contact',
+                          ),
+                        ],
+                      ),
+                    ),
+                    _SectionBlock(
+                      title: 'Gallery',
+                      child: Wrap(
+                        spacing: 12,
+                        runSpacing: 12,
+                        children: const [
+                          _GalleryImage(
+                            asset:
+                                'asset/images/prince-at-usa-presidents-dinner.jpeg',
+                            alt: 'Prince at USA Presidents Dinner',
+                          ),
+                          _GalleryImage(
+                            asset:
+                                'asset/images/prince-at-white-house-with-barrack-obama.jpeg',
+                            alt: 'Prince at White House with Barrack Obama',
+                          ),
+                          _GalleryImage(
+                            asset:
+                                'asset/images/prince-philanthropic-award-from-tsu.jpeg',
+                            alt: 'Prince philanthropic award from TSU',
+                          ),
                         ],
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.fromLTRB(28, 4, 28, 28),
+                      padding: EdgeInsets.fromLTRB(0, 4, 0, 28),
                       child: Text(
                         '© 2026 Prince Uche Nwakanma. All rights reserved.',
                         style: TextStyle(
@@ -338,15 +408,6 @@ class ArticlePage extends StatelessWidget {
   }
 }
 
-class _DividerLine extends StatelessWidget {
-  const _DividerLine();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Divider(height: 1, thickness: 1, color: Color(0xFFE5E7EB));
-  }
-}
-
 class _SectionBlock extends StatelessWidget {
   const _SectionBlock({required this.title, required this.child});
 
@@ -356,12 +417,12 @@ class _SectionBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(28, 24, 28, 0),
+      padding: const EdgeInsets.fromLTRB(0, 24, 0, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title, style: Theme.of(context).textTheme.headlineMedium),
-          const SizedBox(height: 12),
+          const SizedBox(height: 14),
           child,
         ],
       ),
@@ -387,7 +448,7 @@ class _BulletList extends StatelessWidget {
                   Container(
                     width: 6,
                     height: 6,
-                    margin: const EdgeInsets.only(top: 10),
+                    margin: const EdgeInsets.only(top: 11),
                     decoration: const BoxDecoration(
                       color: Color(0xFF9CA3AF),
                       shape: BoxShape.circle,
@@ -398,8 +459,9 @@ class _BulletList extends StatelessWidget {
                     child: Text(
                       item,
                       style: const TextStyle(
-                        fontSize: 16,
-                        height: 1.8,
+                        fontFamily: 'Georgia',
+                        fontSize: 17,
+                        height: 1.85,
                         color: Color(0xFF374151),
                       ),
                     ),
@@ -451,17 +513,19 @@ class _NumberedRow extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                    fontSize: 17,
+                    fontFamily: 'Georgia',
+                    fontSize: 18,
                     fontWeight: FontWeight.w700,
-                    color: Color(0xFF111827),
+                    color: Color(0xFF2B2F36),
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   text,
                   style: const TextStyle(
+                    fontFamily: 'Georgia',
                     fontSize: 16,
-                    height: 1.7,
+                    height: 1.8,
                     color: Color(0xFF374151),
                   ),
                 ),
@@ -486,15 +550,16 @@ class _QuoteBlock extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 18),
       decoration: const BoxDecoration(
         border: Border(
-          top: BorderSide(color: Color(0xFFE5E7EB)),
-          bottom: BorderSide(color: Color(0xFFE5E7EB)),
+          top: BorderSide(color: Color(0xFFDDE3EA)),
+          bottom: BorderSide(color: Color(0xFFDDE3EA)),
         ),
       ),
       child: Text(
         '“$text”',
         style: const TextStyle(
+          fontFamily: 'Georgia',
           fontSize: 16,
-          height: 1.85,
+          height: 1.9,
           fontStyle: FontStyle.italic,
           fontWeight: FontWeight.w500,
           color: Color(0xFF374151),
@@ -527,6 +592,7 @@ class _TextLinkButton extends StatelessWidget {
       child: Text(
         label,
         style: const TextStyle(
+          fontFamily: 'Georgia',
           decoration: TextDecoration.underline,
           decorationThickness: 1,
         ),
@@ -560,6 +626,7 @@ class _FeatureLink extends StatelessWidget {
         child: Text(
           label,
           style: const TextStyle(
+            fontFamily: 'Georgia',
             fontSize: 15,
             height: 1.6,
             decoration: TextDecoration.underline,
