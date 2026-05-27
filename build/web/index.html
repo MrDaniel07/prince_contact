@@ -76,15 +76,16 @@
         .site-header {
             position: sticky;
             top: 0;
-            background: #EFF6FF; /* light blue */
+            background: #ffffff;
             z-index: 1200;
-            border-bottom: 1px solid #e6f0fb;
+            border-bottom: 1px solid #eef2f7;
         }
 
         .header-inner {
             max-width: 920px;
             margin: 0 auto;
-            padding: 6px 18px; /* reduced header size */
+            padding: 6px 18px;
+            /* reduced header size */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -109,9 +110,9 @@
             flex-direction: column;
             gap: 8px;
             padding: 10px 14px;
-            background: #EFF6FF; /* match header */
-            border: 1px solid #dbeffd;
-            box-shadow: 0 6px 18px rgba(17,17,17,0.04);
+            background: #ffffff;
+            border: 1px solid #e6edf3;
+            box-shadow: 0 6px 18px rgba(17, 17, 17, 0.04);
             position: absolute;
             right: 18px;
             top: 56px;
@@ -123,21 +124,6 @@
             text-decoration: none;
             font-weight: 600;
             transition: color .16s, background-color .16s;
-        }
-
-        @media (min-width: 860px) {
-            .nav-menu {
-                flex-direction: row;
-                position: static;
-                box-shadow: none;
-                border: 0;
-                gap: 14px;
-                padding: 0;
-            }
-
-            .hamburger {
-                display: none;
-            }
         }
 
         .hero {
@@ -159,7 +145,8 @@
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* fit, not fill */
+            object-fit: contain;
+            /* fit, not fill */
             object-position: center;
             background: #ffffff;
         }
@@ -296,8 +283,16 @@
         .button:hover,
         .nav-menu a:hover,
         .links a:hover {
-            background-color: #DBEAFE; /* light blue hover */
-            color: #0C4A6E; /* darker blue text on hover */
+            background-color: #DBEAFE;
+            /* light blue hover */
+            color: #0C4A6E;
+            /* darker blue text on hover */
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 2px 0;
+            border-radius: 4px;
         }
 
         .links {
