@@ -265,14 +265,17 @@ class _ArticlePageState extends State<ArticlePage> {
                     const SizedBox(height: 30),
                     _buildSectionWithKey(
                       key: _milestonesKey,
-                      child: const _SectionBlock(
-                        title: 'Professional Milestones',
+                      child: _SectionBlock(
+                        title: 'Legal Career & Leadership',
                         child: _BulletList(
                           items: [
-                            'Legal Distinction: A Juris Doctor (Thurgood Marshall School of Law, 2002), licensed by the Supreme Court of Kansas and the Federal Court for the Southern District of Texas. He has successfully represented over 6,000 clients in federal law.',
-                            'National Recognition: Named among the Top 50 Black Lawyers in the United States, a testament to his diligence and ethical practice.',
-                            'Civic Leadership: Appointed to the President’s Business Advisory Council (Texas) under President George W. Bush and invited to the White House under both the Bush and Obama administrations.',
+                            'Represented thousands of clients across federal courts',
+                            'Built and managed successful business ventures',
+                            'Worked with high-level executives and community leaders',
+                            'Served on the President’s Business Advisory Council for Texas',
+                            'Received invitations to the White House under both the Bush and Obama administrations',
                           ],
+                          bulletColor: const Color(0xFF1E88E5),
                         ),
                       ),
                     ),
@@ -445,9 +448,10 @@ class _SectionBlock extends StatelessWidget {
 }
 
 class _BulletList extends StatelessWidget {
-  const _BulletList({required this.items});
+  const _BulletList({required this.items, this.bulletColor});
 
   final List<String> items;
+  final Color? bulletColor;
 
   @override
   Widget build(BuildContext context) {
@@ -460,11 +464,11 @@ class _BulletList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: 6,
-                    height: 6,
-                    margin: const EdgeInsets.only(top: 11),
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF9CA3AF),
+                    width: 8,
+                    height: 8,
+                    margin: const EdgeInsets.only(top: 10),
+                    decoration: BoxDecoration(
+                      color: bulletColor ?? const Color(0xFF9CA3AF),
                       shape: BoxShape.circle,
                     ),
                   ),
