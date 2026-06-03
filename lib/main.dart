@@ -251,7 +251,7 @@ class _ArticlePageState extends State<ArticlePage> {
                     ),
                     const SizedBox(height: 24),
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(15),
                       child: SizedBox(
                         width: double.infinity,
                         height: 460,
@@ -321,6 +321,7 @@ class _ArticlePageState extends State<ArticlePage> {
                             'Philosophy: A faith-driven leader who integrates transparent governance with compassionate action.',
                             'Personal: A devoted husband and father of three daughters, he views family and faith as the cornerstones of community stability.',
                           ],
+                          bulletColor: Color(0xFF255FF3),
                         ),
                       ),
                     ),

@@ -76,7 +76,7 @@
         .page {
             max-width: 920px;
             margin: 0 auto;
-            padding: 30px 24px 64px;
+            padding: 30px 24px 0;
             width: 100%;
             flex: 1;
             display: flex;
@@ -99,7 +99,7 @@
         .header-inner {
             max-width: 1120px;
             margin: 0 auto;
-            padding: 8px 22px;
+            padding: 16px 22px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -171,6 +171,8 @@
             /* fit, not fill */
             object-position: center;
             background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 18px 40px rgba(37, 95, 243, 0.18);
         }
 
         .content {
@@ -241,8 +243,12 @@
             flex: 0 0 8px;
         }
 
-        /* blue bullets for milestones */
+        /* blue bullets for milestones and academic foundation */
         .milestones .bullet::before {
+            background: #255FF3;
+        }
+
+        .foundation .bullet::before {
             background: #255FF3;
         }
 
@@ -344,6 +350,33 @@
             margin: 0 0 6px;
         }
 
+        .links a {
+            display: block;
+            margin: 0 0 10px;
+            padding: 14px 16px;
+            border: 1px solid rgba(37, 95, 243, 0.18);
+            border-radius: 10px;
+            background: #ffffff;
+            text-decoration: none;
+            transition: background-color .16s, color .16s, border-color .16s;
+        }
+
+        .links a:hover {
+            background-color: #255FF3;
+            color: #ffffff;
+            border-color: #255FF3;
+        }
+
+        .links a:hover,
+        .links a:hover .article-text {
+            color: #ffffff;
+        }
+
+        .links a .article-text {
+            margin: 0;
+            color: inherit;
+        }
+
         .gallery-section {
             margin-top: 28px;
         }
@@ -361,7 +394,7 @@
         .footer-inner {
             max-width: 1120px;
             margin: 0 auto;
-            padding: 44px 24px 22px;
+            padding: 72px 24px 22px;
         }
 
         .footer-grid {
@@ -649,9 +682,9 @@
                         <section>
                             <div class="footer-title">Contact</div>
                             <a class="footer-link footer-contact" href="javascript:void(0)"
-                                aria-label="Email contact placeholder">Email: danielanyahuru20@gmail.com</a>
+                                aria-label="Email contact placeholder">email</a>
                             <a class="footer-link footer-contact" href="javascript:void(0)"
-                                aria-label="Phone contact placeholder">Phone: +1 (555) 123-4567</a>
+                                aria-label="Phone contact placeholder">phone</a>
                         </section>
                     </div>
 
