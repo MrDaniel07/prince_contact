@@ -501,7 +501,7 @@ class _BulletList extends StatelessWidget {
                     height: 8,
                     margin: const EdgeInsets.only(top: 10),
                     decoration: BoxDecoration(
-                      color: bulletColor ?? const Color(0xFF9CA3AF),
+                      color: bulletColor ?? const Color(0xFF255FF3),
                       shape: BoxShape.circle,
                     ),
                   ),
