@@ -173,6 +173,7 @@
             background: #ffffff;
             border-radius: 15px;
             box-shadow: 0 18px 40px rgba(37, 95, 243, 0.18);
+            cursor: zoom-in;
         }
 
         .content {
@@ -381,8 +382,11 @@
             color: #ffffff;
             border-top: 1px solid rgba(255, 255, 255, 0.14);
             width: 100vw;
-            margin-left: calc(50% - 50vw);
-            margin-right: calc(50% - 50vw);
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
         }
 
         .footer-inner {
@@ -479,6 +483,7 @@
             height: 260px;
             object-fit: cover;
             border-radius: 6px;
+            cursor: zoom-in;
         }
 
         .gallery figcaption {
@@ -495,9 +500,74 @@
             line-height: 1.6;
         }
 
+        .image-overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(15, 23, 42, 0.52);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 3000;
+        }
+
+        .image-overlay.is-open {
+            display: flex;
+        }
+
+        .image-overlay__panel {
+            position: relative;
+            width: min(70vw, 980px);
+            height: min(70vh, 760px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+
+        .image-overlay img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            border-radius: 16px;
+            object-fit: contain;
+            background: #ffffff;
+        }
+
+        .image-overlay__close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 0;
+            border-radius: 999px;
+            padding: 10px 14px;
+            background: #255FF3;
+            color: #ffffff;
+            font: 700 13px/1 Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 10px 28px rgba(37, 95, 243, 0.34);
+        }
+
+        .image-overlay__close span {
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        body.lightbox-open {
+            overflow: hidden;
+        }
+
         @media (max-width: 860px) {
             .page {
-                padding: 28px 22px 56px;
+                padding: 28px 22px 0;
             }
 
             .hero {
@@ -520,8 +590,15 @@
 
             .site-footer {
                 width: 100%;
+                left: 0;
+                right: 0;
                 margin-left: 0;
                 margin-right: 0;
+            }
+
+            .image-overlay__panel {
+                width: min(88vw, 980px);
+                height: min(70vh, 760px);
             }
         }
     </style>
@@ -553,7 +630,9 @@
                 </div>
 
                 <div class="portrait">
-                    <img src="assets/asset/images/prince-uche-nwakanma.jpg" alt="Prince Uche Nwakanma" />
+                    <img class="lightbox-trigger" data-lightbox-src="assets/asset/images/prince-uche-nwakanma.jpg"
+                        data-lightbox-alt="Prince Uche Nwakanma" src="assets/asset/images/prince-uche-nwakanma.jpg"
+                        alt="Prince Uche Nwakanma" />
                 </div>
             </section>
 
@@ -638,17 +717,26 @@
                 <div class="section-title" style="margin-bottom: 8px;">Gallery</div>
                 <div class="gallery">
                     <figure>
-                        <img src="assets/asset/images/prince-at-usa-presidents-dinner.jpeg"
+                        <img class="lightbox-trigger"
+                            data-lightbox-src="assets/asset/images/prince-at-usa-presidents-dinner.jpeg"
+                            data-lightbox-alt="Prince at USA Presidents Dinner"
+                            src="assets/asset/images/prince-at-usa-presidents-dinner.jpeg"
                             alt="Prince at USA Presidents Dinner" />
                         <figcaption>Prince at USA Presidents Dinner</figcaption>
                     </figure>
                     <figure>
-                        <img src="assets/asset/images/prince-at-white-house-with-barrack-obama.jpeg"
+                        <img class="lightbox-trigger"
+                            data-lightbox-src="assets/asset/images/prince-at-white-house-with-barrack-obama.jpeg"
+                            data-lightbox-alt="Prince at White House with Barrack Obama"
+                            src="assets/asset/images/prince-at-white-house-with-barrack-obama.jpeg"
                             alt="Prince at White House with Barrack Obama" />
                         <figcaption>Prince at White House with Barrack Obama</figcaption>
                     </figure>
                     <figure>
-                        <img src="assets/asset/images/prince-philanthropic-award-from-tsu.jpeg"
+                        <img class="lightbox-trigger"
+                            data-lightbox-src="assets/asset/images/prince-philanthropic-award-from-tsu.jpeg"
+                            data-lightbox-alt="Prince philanthropic award from TSU"
+                            src="assets/asset/images/prince-philanthropic-award-from-tsu.jpeg"
                             alt="Prince philanthropic award from TSU" />
                         <figcaption>Prince philanthropic award from TSU</figcaption>
                     </figure>
@@ -714,6 +802,59 @@
                     if (!menu.hasAttribute('hidden')) menu.setAttribute('hidden', '');
                     btn.setAttribute('aria-expanded', 'false');
                 });
+            });
+        })();
+
+        (function () {
+            const triggers = Array.from(document.querySelectorAll('.lightbox-trigger'));
+            if (triggers.length === 0) return;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'image-overlay';
+            overlay.setAttribute('aria-hidden', 'true');
+            overlay.innerHTML = '\n+                <div class="image-overlay__panel" role="dialog" aria-modal="true" aria-label="Image preview">\n+                    <button type="button" class="image-overlay__close" aria-label="Close image preview"><span>×</span> Close</button>\n+                    <img alt="" />\n+                </div>\n+            ';
+            document.body.appendChild(overlay);
+
+            const overlayImage = overlay.querySelector('img');
+            const closeButton = overlay.querySelector('.image-overlay__close');
+            const panel = overlay.querySelector('.image-overlay__panel');
+
+            const closeOverlay = () => {
+                overlay.classList.remove('is-open');
+                overlay.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('lightbox-open');
+                overlayImage.removeAttribute('src');
+                overlayImage.removeAttribute('alt');
+            };
+
+            const openOverlay = (src, alt) => {
+                overlayImage.src = src;
+                overlayImage.alt = alt;
+                overlay.classList.add('is-open');
+                overlay.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('lightbox-open');
+            };
+
+            triggers.forEach((trigger) => {
+                trigger.addEventListener('click', () => {
+                    openOverlay(
+                        trigger.getAttribute('data-lightbox-src') || trigger.getAttribute('src') || '',
+                        trigger.getAttribute('data-lightbox-alt') || trigger.getAttribute('alt') || 'Image preview'
+                    );
+                });
+            });
+
+            closeButton.addEventListener('click', closeOverlay);
+            overlay.addEventListener('click', (event) => {
+                if (event.target === overlay) closeOverlay();
+            });
+            panel.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && overlay.classList.contains('is-open')) {
+                    closeOverlay();
+                }
             });
         })();
     </script>
