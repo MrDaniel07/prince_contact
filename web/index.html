@@ -464,6 +464,7 @@
 
         .site-footer {
             margin-top: auto;
+            flex-shrink: 0;
         }
 
         .gallery {
@@ -567,7 +568,8 @@
 
         @media (max-width: 860px) {
             .page {
-                padding: 28px 22px 0;
+                padding: 28px 0 0;
+                max-width: none;
             }
 
             .hero {
@@ -586,6 +588,11 @@
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
+            }
+
+            .footer-inner {
+                padding-left: 22px;
+                padding-right: 22px;
             }
 
             .site-footer {
