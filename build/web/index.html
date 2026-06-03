@@ -65,6 +65,8 @@
             background: #ffffff;
             color: #111111;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         a {
@@ -75,6 +77,15 @@
             max-width: 920px;
             margin: 0 auto;
             padding: 30px 24px 64px;
+            width: 100%;
+            flex: 1;
+            display: flex;
+        }
+
+        .page article {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .site-header {
@@ -232,7 +243,7 @@
 
         /* blue bullets for milestones */
         .milestones .bullet::before {
-            background: #0C4A6E;
+            background: #255FF3;
         }
 
         .pill-grid {
@@ -339,9 +350,9 @@
 
         .site-footer {
             margin-top: 42px;
-            background: #dbeafe;
-            color: #0f172a;
-            border-top: 1px solid #bfdbfe;
+            background: #255FF3;
+            color: #ffffff;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
             width: 100vw;
             margin-left: calc(50% - 50vw);
             margin-right: calc(50% - 50vw);
@@ -366,14 +377,14 @@
             font-size: 1.4rem;
             line-height: 1.15;
             font-weight: 700;
-            color: #0f172a;
+            color: #ffffff;
         }
 
         .footer-copy,
         .footer-link,
         .footer-contact {
             margin: 0;
-            color: #334155;
+            color: #ffffff;
             font-size: 1rem;
             line-height: 1.7;
         }
@@ -384,26 +395,26 @@
         }
 
         .footer-link {
-            color: #1d4ed8;
+            color: #ffffff;
             text-decoration: none;
             transition: color .16s, background-color .16s;
             width: fit-content;
         }
 
         .footer-link:hover {
-            color: #0c4a6e;
+            color: #e0e7ff;
         }
 
         .footer-rule {
             margin: 34px 0 0;
             border: 0;
-            border-top: 1px solid #bfdbfe;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         .footer-bottom {
             padding-top: 22px;
             text-align: center;
-            color: #475569;
+            color: #ffffff;
             font-size: 0.95rem;
             line-height: 1.6;
         }
@@ -413,6 +424,10 @@
             max-width: 1120px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .site-footer {
+            margin-top: auto;
         }
 
         .gallery {
@@ -470,6 +485,12 @@
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
+
+            .site-footer {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
         }
     </style>
 </head>
@@ -520,19 +541,19 @@
                     leadership initiatives.</p>
 
                 <div id="legal-career" class="section-title">Legal Career &amp; Leadership</div>
+                <p class="article-text">Prince Uche Nwakanma has spent decades building a respected legal and
+                    professional career in the United States.</p>
+                <p class="article-text">Over the years, he has:</p>
                 <div class="bullets milestones">
-                    <div class="bullet">Prince Uche Nwakanma has spent decades building a respected legal and
-                        professional career in the United States.</div>
-                    <div class="bullet">Over the years, he has:</div>
                     <div class="bullet">Represented thousands of clients across federal courts</div>
                     <div class="bullet">Built and managed successful business ventures</div>
                     <div class="bullet">Worked with high-level executives and community leaders</div>
                     <div class="bullet">Served on the President’s Business Advisory Council for Texas</div>
                     <div class="bullet">Received invitations to the White House under both the Bush and Obama
                         administrations</div>
-                    <div class="bullet">His leadership approach focuses on integrity, responsibility, and creating
-                        opportunities that improve lives across generations.</div>
                 </div>
+                <p class="article-text">His leadership approach focuses on integrity, responsibility, and creating
+                    opportunities that improve lives across generations.</p>
 
                 <div id="academic-personal" class="section-title">Academic &amp; Personal Foundation</div>
                 <div class="bullets">
@@ -607,7 +628,8 @@
                     <div class="footer-grid">
                         <section>
                             <div class="footer-title">Prince Uche Nwakanma</div>
-                            <p class="footer-copy">Lawyer • Entrepreneur • Philanthropist • Founder of Prince Goodwill Foundation</p>
+                            <p class="footer-copy">Lawyer • Entrepreneur • Philanthropist • Founder of Prince Goodwill
+                                Foundation</p>
                         </section>
 
                         <section>
@@ -626,8 +648,10 @@
 
                         <section>
                             <div class="footer-title">Contact</div>
-                            <p class="footer-contact">Email: danielanyahuru20@gmail.com</p>
-                            <p class="footer-contact">Phone: +1 (555) 123-4567</p>
+                            <a class="footer-link footer-contact" href="javascript:void(0)"
+                                aria-label="Email contact placeholder">Email: danielanyahuru20@gmail.com</a>
+                            <a class="footer-link footer-contact" href="javascript:void(0)"
+                                aria-label="Phone contact placeholder">Phone: +1 (555) 123-4567</a>
                         </section>
                     </div>
 

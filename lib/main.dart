@@ -267,15 +267,47 @@ class _ArticlePageState extends State<ArticlePage> {
                       key: _milestonesKey,
                       child: _SectionBlock(
                         title: 'Legal Career & Leadership',
-                        child: _BulletList(
-                          items: [
-                            'Represented thousands of clients across federal courts',
-                            'Built and managed successful business ventures',
-                            'Worked with high-level executives and community leaders',
-                            'Served on the President’s Business Advisory Council for Texas',
-                            'Received invitations to the White House under both the Bush and Obama administrations',
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Prince Uche Nwakanma has spent decades building a respected legal and professional career in the United States.',
+                              style: TextStyle(
+                                fontSize: 16,
+                                height: 1.8,
+                                color: Color(0xFF111111),
+                              ),
+                            ),
+                            SizedBox(height: 12),
+                            Text(
+                              'Over the years, he has:',
+                              style: TextStyle(
+                                fontSize: 16,
+                                height: 1.8,
+                                color: Color(0xFF111111),
+                              ),
+                            ),
+                            SizedBox(height: 12),
+                            _BulletList(
+                              items: [
+                                'Represented thousands of clients across federal courts',
+                                'Built and managed successful business ventures',
+                                'Worked with high-level executives and community leaders',
+                                'Served on the President’s Business Advisory Council for Texas',
+                                'Received invitations to the White House under both the Bush and Obama administrations',
+                              ],
+                              bulletColor: const Color(0xFF255FF3),
+                            ),
+                            SizedBox(height: 12),
+                            Text(
+                              'His leadership approach focuses on integrity, responsibility, and creating opportunities that improve lives across generations.',
+                              style: TextStyle(
+                                fontSize: 16,
+                                height: 1.8,
+                                color: Color(0xFF111111),
+                              ),
+                            ),
                           ],
-                          bulletColor: const Color(0xFF1E88E5),
                         ),
                       ),
                     ),
