@@ -337,6 +337,76 @@
             margin-top: 28px;
         }
 
+        .site-footer {
+            margin-top: 42px;
+            background: #0f172a;
+            color: #e5e7eb;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 44px 24px 22px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr 1fr;
+            gap: 36px;
+            align-items: start;
+        }
+
+        .footer-title {
+            margin: 0 0 16px;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.4rem;
+            line-height: 1.15;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .footer-copy,
+        .footer-link,
+        .footer-contact {
+            margin: 0;
+            color: #a8b3c4;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .footer-links-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-link {
+            color: #c7d2fe;
+            text-decoration: none;
+            transition: color .16s, background-color .16s;
+            width: fit-content;
+        }
+
+        .footer-link:hover {
+            color: #60a5fa;
+        }
+
+        .footer-rule {
+            margin: 34px 0 0;
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-bottom {
+            padding-top: 22px;
+            text-align: center;
+            color: #a8b3c4;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -386,6 +456,11 @@
 
             .gallery figure {
                 width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
         }
     </style>
@@ -519,7 +594,40 @@
                 </div>
             </section>
 
-            <div class="footer-links">&copy; 2026 Prince Uche Nwakanma. All rights reserved.</div>
+            <footer class="site-footer" aria-label="Footer">
+                <div class="footer-inner">
+                    <div class="footer-grid">
+                        <section>
+                            <div class="footer-title">Prince Uche Nwakanma</div>
+                            <p class="footer-copy">Empowering communities and transforming lives through healthcare,
+                                education, housing support, and faith-based ministry.</p>
+                        </section>
+
+                        <section>
+                            <div class="footer-title">Foundation Links</div>
+                            <div class="footer-links-list">
+                                <a class="footer-link" href="https://princegoodwillfoundation.org/about"
+                                    rel="noopener">About Us</a>
+                                <a class="footer-link" href="https://princegoodwillfoundation.org/programs"
+                                    rel="noopener">Our Programs</a>
+                                <a class="footer-link" href="https://princegoodwillfoundation.org/impact"
+                                    rel="noopener">Our Impact</a>
+                                <a class="footer-link" href="https://princegoodwillfoundation.org/news"
+                                    rel="noopener">News &amp; Updates</a>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="footer-title">Contact</div>
+                            <p class="footer-contact">Email: danielanyahuru20@gmail.com</p>
+                            <p class="footer-contact">Phone: +1 (555) 123-4567</p>
+                        </section>
+                    </div>
+
+                    <hr class="footer-rule">
+                    <div class="footer-bottom">&copy; 2026 Prince Uche Nwakanma. All rights reserved.</div>
+                </div>
+            </footer>
         </article>
     </main>
 
