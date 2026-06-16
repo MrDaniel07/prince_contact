@@ -125,6 +125,11 @@ class _ArticlePageState extends State<ArticlePage> {
     );
   }
 
+  Future<void> _launchUrl(String url) async {
+    final uri = Uri.parse(url);
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
   void _openNavMenu() {
     showModalBottomSheet<void>(
       context: context,
@@ -233,14 +238,40 @@ class _ArticlePageState extends State<ArticlePage> {
                       ),
                     ),
                     const SizedBox(height: 12),
-                    const Text(
-                      'Founder & CEO, Prince Goodwill Foundation\nLegal Expert | Strategic Entrepreneur | Global Philanthropist',
-                      style: TextStyle(
-                        fontFamily: 'Georgia',
-                        fontSize: 18,
-                        height: 1.8,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF111111),
+                    RichText(
+                      text: TextSpan(
+                        style: const TextStyle(
+                          fontFamily: 'Georgia',
+                          fontSize: 18,
+                          height: 1.8,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF111111),
+                        ),
+                        children: [
+                          const TextSpan(text: 'Founder & CEO, '),
+                          WidgetSpan(
+                            child: GestureDetector(
+                              onTap: () => _launchUrl(
+                                'https://princegoodwillfoundation.org/',
+                              ),
+                              child: const Text(
+                                'Prince Goodwill Foundation',
+                                style: TextStyle(
+                                  fontFamily: 'Georgia',
+                                  fontSize: 18,
+                                  height: 1.8,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF255FF3),
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const TextSpan(
+                            text:
+                                '\nLegal Expert | Strategic Entrepreneur | Global Philanthropist',
+                          ),
+                        ],
                       ),
                     ),
                     const SizedBox(height: 18),
@@ -266,7 +297,10 @@ class _ArticlePageState extends State<ArticlePage> {
                     _buildSectionWithKey(
                       key: _milestonesKey,
                       child: _SectionBlock(
-                        title: 'Legal Career & Leadership',
+                        title: Text(
+                          'Legal Career & Leadership',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -313,9 +347,12 @@ class _ArticlePageState extends State<ArticlePage> {
                     ),
                     _buildSectionWithKey(
                       key: _academicKey,
-                      child: const _SectionBlock(
-                        title: 'Academic & Personal Foundation',
-                        child: _BulletList(
+                      child: _SectionBlock(
+                        title: Text(
+                          'Academic & Personal Foundation',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        child: const _BulletList(
                           items: [
                             'Education: B.S. in Biology (University of Houston–Downtown); Juris Doctor (Texas Southern University).',
                             'Philosophy: A faith-driven leader who integrates transparent governance with compassionate action.',
@@ -327,13 +364,27 @@ class _ArticlePageState extends State<ArticlePage> {
                     ),
                     _buildSectionWithKey(
                       key: _connectKey,
-                      child: const _SectionBlock(
-                        title: 'Connect With the Mission',
-                        child: Column(
+                      child: _SectionBlock(
+                        title: GestureDetector(
+                          onTap: () => _launchUrl(
+                            'https://princegoodwillfoundation.org/',
+                          ),
+                          child: const Text(
+                            'Connect With the Mission',
+                            style: TextStyle(
+                              fontFamily: 'Georgia',
+                              fontSize: 30,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFF255FF3),
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                        child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Prince Nwakanma remains dedicated to bridging professional excellence with humanitarian service, ensuring that every initiative produces measurable, generational transformation.',
+                              'Prince Nwakanma remains dedicated to bridging professional excellence with humanitarian service, ensuring that every initiative produces measurable, generational transformation. The Prince Goodwill Foundation is one such initiative, designed to create sustainable impact through education, healthcare, and community development.',
                               style: TextStyle(
                                 fontSize: 16,
                                 height: 1.8,
@@ -366,9 +417,12 @@ class _ArticlePageState extends State<ArticlePage> {
                         ),
                       ),
                     ),
-                    const _SectionBlock(
-                      title: 'Founder of Prince Goodwill Foundation',
-                      child: Column(
+                    _SectionBlock(
+                      title: Text(
+                        'Founder of Prince Goodwill Foundation',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -412,7 +466,10 @@ class _ArticlePageState extends State<ArticlePage> {
                     _buildSectionWithKey(
                       key: _galleryKey,
                       child: _SectionBlock(
-                        title: 'Gallery',
+                        title: Text(
+                          'Gallery',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
                         child: Wrap(
                           spacing: 12,
                           runSpacing: 12,
@@ -461,7 +518,7 @@ class _ArticlePageState extends State<ArticlePage> {
 class _SectionBlock extends StatelessWidget {
   const _SectionBlock({required this.title, required this.child});
 
-  final String title;
+  final Widget title;
   final Widget child;
 
   @override
@@ -470,11 +527,7 @@ class _SectionBlock extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(0, 24, 0, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: Theme.of(context).textTheme.headlineMedium),
-          const SizedBox(height: 14),
-          child,
-        ],
+        children: [title, const SizedBox(height: 14), child],
       ),
     );
   }
