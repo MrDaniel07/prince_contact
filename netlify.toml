@@ -2,7 +2,6 @@
   command = ""
   publish = "build/web"
 
-# Headers for stat ic assets
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
@@ -15,6 +14,13 @@
   [headers.values]
     Content-Type = "text/plain"
     Cache-Control = "public, max-age=3600"
+
+# Redirect Netlify subdomain to custom domain
+[[redirects]]
+  from = "https://princeuchenwakanma.netlify.app/*"
+  to = "https://princeuchenwakanma.com/:splat"
+  status = 301
+  force = true
 
 # Redirect rules for single page app
 [[redirects]]
